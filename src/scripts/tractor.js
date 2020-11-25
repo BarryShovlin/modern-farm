@@ -6,31 +6,33 @@ import { createWheat } from "/scripts/seeds/wheat.js"
 import { createSoybean } from "/scripts/seeds/soybean.js"
 import { createSunflower } from "/scripts/seeds/sunflower.js"
 import { addPlant } from "/scripts/field.js"
+import { createPlan } from "/scripts/plan.js"
+import { usePlants } from "/scripts/field.js"
  
 
 export const plantSeeds = (field) => {
-    
-    for (let index = 0; index < field.length; index++) {
-        for (const row of field[index])  {
-            if ("Asparagus" in row) {
+    for (const row of field) {
+        for (let index = 0; index < row.length; index++)  {
+            if (row[index] === "Asparagus") {
                 const asparagus = createAsparagus()
-                    addPlant(asparagus)
-            } else if ("Potato" in row) {
+                   addPlant(asparagus)
+            } else if (row[index] === "Potato") {
                     const potato = createPotato()
-                        addPlant(potato)
-            } else if ("Corn" in row) {
+                    addPlant(potato)
+            } else if (row[index] === "Corn") {
                 const corn = createCorn()
                     addPlant(corn)
-            } else if ("Wheat" in row) {
+            } else if (row[index] === "Wheat") {
                 const wheat = createWheat()
                     addPlant(wheat)
-            } else if ("Soybean" in row) {
+            } else if (row[index] === "Soybean") {
                 const soybean = createSoybean()
                     addPlant(soybean)
             } else { 
                 const sunflower = createSunflower()
-                    addPlant(Sunflowwer)
+                    addPlant(sunflower)
             }
         }
     }
+    return usePlants()
 }
